@@ -155,6 +155,9 @@ public class ulogin extends JFrame {
 		JButton btnNewButton_2 = new JButton("Back");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Home home = new Home();
+				home.setVisible(true);
 			}
 		});
 		btnNewButton_2.setFont(new Font("Trebuchet MS", Font.BOLD, 18));

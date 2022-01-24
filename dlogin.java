@@ -48,7 +48,7 @@ public class dlogin extends JFrame {
 	 */
 	public dlogin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 576, 484);
+		setBounds(100, 100, 576, 541);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -69,7 +69,7 @@ public class dlogin extends JFrame {
 		JPanel panel_1 = new JPanel();
 		panel_1.setForeground(new Color(220, 20, 60));
 		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(65, 105, 225), new Color(139, 0, 0), null, null));
-		panel_1.setBounds(10, 90, 540, 344);
+		panel_1.setBounds(10, 90, 540, 390);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -162,5 +162,16 @@ public class dlogin extends JFrame {
 		btnReset.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		btnReset.setBounds(310, 189, 114, 37);
 		panel_1.add(btnReset);
+		
+		JButton btnNewButton_2 = new JButton("Back");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {dispose();
+			Home home = new Home();
+			home.setVisible(true);
+			}
+		});
+		btnNewButton_2.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
+		btnNewButton_2.setBounds(230, 328, 98, 40);
+		panel_1.add(btnNewButton_2);
 	}
 }

@@ -45,7 +45,7 @@ public class ologin extends JFrame {
 	 */
 	public ologin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 532, 547);
+		setBounds(100, 100, 532, 598);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -65,7 +65,7 @@ public class ologin extends JFrame {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(119, 136, 153), new Color(244, 164, 96), null, null));
-		panel_1.setBounds(10, 104, 496, 393);
+		panel_1.setBounds(10, 104, 496, 444);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -136,7 +136,7 @@ public class ologin extends JFrame {
 		
 		JButton btnNewButton_1 = new JButton("Register");
 		btnNewButton_1.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
-		btnNewButton_1.setBounds(186, 334, 117, 37);
+		btnNewButton_1.setBounds(201, 320, 117, 37);
 		panel_1.add(btnNewButton_1);
 		
 		JButton btnReset = new JButton("Reset");
@@ -149,5 +149,17 @@ public class ologin extends JFrame {
 		btnReset.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
 		btnReset.setBounds(277, 188, 114, 39);
 		panel_1.add(btnReset);
+		
+		JButton btnNewButton_2 = new JButton("Back");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Home home = new Home();
+				home.setVisible(true);
+				}
+		});
+		btnNewButton_2.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
+		btnNewButton_2.setBounds(211, 378, 98, 40);
+		panel_1.add(btnNewButton_2);
 	}
 }
