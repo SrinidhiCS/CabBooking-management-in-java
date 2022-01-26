@@ -13,8 +13,11 @@ import javax.swing.JOptionPane;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.border.BevelBorder;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -47,7 +50,7 @@ public class ulogin extends JFrame {
 	public ulogin() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 517, 497);
+		setBounds(100, 100, 551, 499);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -55,7 +58,7 @@ public class ulogin extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 255, 255));
-		panel.setBounds(10, 11, 481, 80);
+		panel.setBounds(10, 11, 515, 80);
 		contentPane.add(panel);
 		
 		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("USER LOGIN");
@@ -65,7 +68,7 @@ public class ulogin extends JFrame {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(139, 69, 19), new Color(0, 0, 0), null, null));
-		panel_1.setBounds(10, 108, 481, 339);
+		panel_1.setBounds(10, 108, 515, 339);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -90,6 +93,8 @@ public class ulogin extends JFrame {
 		ucontno.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Submit");
+		Image s=new ImageIcon(this.getClass().getResource("/ok-icon.png")).getImage();
+		btnNewButton.setIcon(new ImageIcon(s));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String uid = userid.getText();
@@ -125,7 +130,7 @@ public class ulogin extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
-		btnNewButton.setBounds(108, 168, 107, 38);
+		btnNewButton.setBounds(108, 168, 132, 38);
 		panel_1.add(btnNewButton);
 		
 		JLabel lblNewJgoodiesLabel_3 = DefaultComponentFactory.getInstance().createLabel("ARE YOU A NEW USER ?");
@@ -134,6 +139,8 @@ public class ulogin extends JFrame {
 		panel_1.add(lblNewJgoodiesLabel_3);
 		
 		JButton btnNewButton_1 = new JButton("Register");
+		Image d=new ImageIcon(this.getClass().getResource("/user-icon.png")).getImage();
+		btnNewButton_1.setIcon(new ImageIcon(d));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -142,10 +149,12 @@ public class ulogin extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
-		btnNewButton_1.setBounds(286, 242, 98, 34);
+		btnNewButton_1.setBounds(225, 226, 163, 57);
 		panel_1.add(btnNewButton_1);
 		
 		JButton btnReset = new JButton("Reset");
+		Image r=new ImageIcon(this.getClass().getResource("/clear-icon.png")).getImage();
+		btnReset.setIcon(new ImageIcon(r));
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				userid.setText("");
@@ -154,10 +163,12 @@ public class ulogin extends JFrame {
 			}
 		});
 		btnReset.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
-		btnReset.setBounds(288, 168, 107, 38);
+		btnReset.setBounds(288, 168, 122, 38);
 		panel_1.add(btnReset);
 		
 		JButton btnNewButton_2 = new JButton("Back");
+		Image b=new ImageIcon(this.getClass().getResource("/back-icon.png")).getImage();
+		btnNewButton_2.setIcon(new ImageIcon(b));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -166,7 +177,7 @@ public class ulogin extends JFrame {
 			}
 		});
 		btnNewButton_2.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		btnNewButton_2.setBounds(196, 288, 98, 40);
+		btnNewButton_2.setBounds(383, 288, 122, 40);
 		panel_1.add(btnNewButton_2);
 	}
 }

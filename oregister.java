@@ -11,11 +11,13 @@ import javax.swing.JOptionPane;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Color;
 import javax.swing.border.BevelBorder;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -109,6 +111,8 @@ public class oregister extends JFrame {
 		panel_1.add(Type);
 		
 		JButton btnNewButton = new JButton("Reset");
+		Image d=new ImageIcon(this.getClass().getResource("/clear-icon.png")).getImage();
+		btnNewButton.setIcon(new ImageIcon(d));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				oname.setText("");
@@ -116,10 +120,12 @@ public class oregister extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 22));
-		btnNewButton.setBounds(24, 237, 114, 42);
+		btnNewButton.setBounds(24, 237, 132, 42);
 		panel_1.add(btnNewButton);
 		
 		JButton btnSubmit = new JButton("Submit");
+		Image s=new ImageIcon(this.getClass().getResource("/ok-icon.png")).getImage();
+		btnSubmit.setIcon(new ImageIcon(s));
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dregister frame =new dregister();
@@ -157,10 +163,12 @@ public class oregister extends JFrame {
 			}
 		});
 		btnSubmit.setFont(new Font("Trebuchet MS", Font.BOLD, 22));
-		btnSubmit.setBounds(205, 237, 114, 42);
+		btnSubmit.setBounds(197, 237, 150, 42);
 		panel_1.add(btnSubmit);
 		
 		JButton btnNewButton_2 = new JButton("Back");
+		Image b=new ImageIcon(this.getClass().getResource("/back-icon.png")).getImage();
+		btnNewButton_2.setIcon(new ImageIcon(b));
 		btnNewButton_2.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			dispose();
@@ -169,7 +177,7 @@ public class oregister extends JFrame {
 			}
 		});
 		btnNewButton_2.setFont(new Font("Trebuchet MS", Font.BOLD, 22));
-		btnNewButton_2.setBounds(385, 237, 114, 42);
+		btnNewButton_2.setBounds(385, 237, 132, 42);
 		panel_1.add(btnNewButton_2);
 	}
 }

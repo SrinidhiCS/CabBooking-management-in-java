@@ -11,8 +11,10 @@ import javax.swing.JOptionPane;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Color;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -106,6 +108,8 @@ public class uregister extends JFrame {
 		uaddr.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Reset");
+		Image c=new ImageIcon(this.getClass().getResource("/clear-icon.png")).getImage();
+		btnNewButton.setIcon(new ImageIcon(c));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				uname.setText("");
@@ -114,10 +118,13 @@ public class uregister extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 22));
-		btnNewButton.setBounds(54, 347, 114, 42);
+		btnNewButton.setBounds(54, 347, 150, 42);
 		panel_1.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Submit");
+		Image s=new ImageIcon(this.getClass().getResource("/ok-icon.png")).getImage();
+		btnNewButton_1.setIcon(new ImageIcon(s));
+		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				uregister frame =new uregister();
@@ -159,10 +166,12 @@ public class uregister extends JFrame {
 				}
 		});
 		btnNewButton_1.setFont(new Font("Trebuchet MS", Font.BOLD, 22));
-		btnNewButton_1.setBounds(259, 347, 114, 42);
+		btnNewButton_1.setBounds(259, 347, 158, 42);
 		panel_1.add(btnNewButton_1);
 		
 		JButton btnNewButton_1_1 = new JButton("Back");
+		Image b=new ImageIcon(this.getClass().getResource("/back-icon.png")).getImage();
+		btnNewButton_1_1.setIcon(new ImageIcon(b));
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -171,7 +180,7 @@ public class uregister extends JFrame {
 			}
 		});
 		btnNewButton_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 22));
-		btnNewButton_1_1.setBounds(465, 347, 114, 42);
+		btnNewButton_1_1.setBounds(465, 347, 141, 42);
 		panel_1.add(btnNewButton_1_1);
 	}
 }

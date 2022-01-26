@@ -12,8 +12,11 @@ import javax.swing.JOptionPane;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.border.BevelBorder;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -91,6 +94,8 @@ public class ologin extends JFrame {
 		taxiid.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Submit");
+		Image d=new ImageIcon(this.getClass().getResource("/ok-icon.png")).getImage();
+		btnNewButton.setIcon(new ImageIcon(d));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String oid = ownid.getText();
@@ -128,7 +133,7 @@ public class ologin extends JFrame {
 		
 		});
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
-		btnNewButton.setBounds(84, 188, 114, 39);
+		btnNewButton.setBounds(84, 188, 141, 39);
 		panel_1.add(btnNewButton);
 		
 		JLabel lblNewJgoodiesLabel_3 = DefaultComponentFactory.getInstance().createLabel("DO YOU WANT TO REGISTER YOUR CAR AS A TAXI?");
@@ -137,6 +142,8 @@ public class ologin extends JFrame {
 		panel_1.add(lblNewJgoodiesLabel_3);
 		
 		JButton btnNewButton_1 = new JButton("Register");
+		Image r=new ImageIcon(this.getClass().getResource("/Transport-Driver-icon.png")).getImage();
+		btnNewButton_1.setIcon(new ImageIcon(r));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -145,10 +152,12 @@ public class ologin extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
-		btnNewButton_1.setBounds(201, 320, 117, 37);
+		btnNewButton_1.setBounds(201, 308, 172, 49);
 		panel_1.add(btnNewButton_1);
 		
 		JButton btnReset = new JButton("Reset");
+		Image re=new ImageIcon(this.getClass().getResource("/clear-icon.png")).getImage();
+		btnReset.setIcon(new ImageIcon(re));
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			ownid.setText("");
@@ -156,10 +165,12 @@ public class ologin extends JFrame {
 			}
 		});
 		btnReset.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
-		btnReset.setBounds(277, 188, 114, 39);
+		btnReset.setBounds(277, 188, 141, 39);
 		panel_1.add(btnReset);
 		
 		JButton btnNewButton_2 = new JButton("Back");
+		Image b=new ImageIcon(this.getClass().getResource("/back-icon.png")).getImage();
+		btnNewButton_2.setIcon(new ImageIcon(b));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -168,7 +179,7 @@ public class ologin extends JFrame {
 				}
 		});
 		btnNewButton_2.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		btnNewButton_2.setBounds(211, 378, 98, 40);
+		btnNewButton_2.setBounds(211, 378, 122, 40);
 		panel_1.add(btnNewButton_2);
 	}
 }

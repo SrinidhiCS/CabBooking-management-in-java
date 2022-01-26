@@ -16,7 +16,10 @@ import javax.swing.JOptionPane;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -68,6 +71,7 @@ public class dlogin extends JFrame {
 		panel.add(lblNewJgoodiesLabel);
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(240, 248, 255));
 		panel_1.setForeground(new Color(220, 20, 60));
 		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(65, 105, 225), new Color(139, 0, 0), null, null));
 		panel_1.setBounds(10, 90, 540, 390);
@@ -99,6 +103,8 @@ public class dlogin extends JFrame {
 		dcontno.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Submit");
+		Image s=new ImageIcon(this.getClass().getResource("/ok-icon.png")).getImage();
+		btnNewButton.setIcon(new ImageIcon(s));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String did = driverid.getText();
@@ -135,7 +141,7 @@ public class dlogin extends JFrame {
 		});
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.setBounds(89, 189, 114, 37);
+		btnNewButton.setBounds(89, 189, 140, 37);
 		panel_1.add(btnNewButton);
 		
 		JLabel lblNewJgoodiesLabel_4 = DefaultComponentFactory.getInstance().createLabel("WANT TO REGISTER AS A DRIVER?");
@@ -144,6 +150,8 @@ public class dlogin extends JFrame {
 		panel_1.add(lblNewJgoodiesLabel_4);
 		
 		JButton btnNewButton_1 = new JButton("Register");
+		Image re=new ImageIcon(this.getClass().getResource("/Transport-Driver-icon.png")).getImage();
+		btnNewButton_1.setIcon(new ImageIcon(re));
 		btnNewButton_1.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -152,10 +160,12 @@ public class dlogin extends JFrame {
 				dr.show();
 			}
 		});
-		btnNewButton_1.setBounds(343, 281, 120, 33);
+		btnNewButton_1.setBounds(343, 262, 165, 52);
 		panel_1.add(btnNewButton_1);
 		
 		JButton btnReset = new JButton("Reset");
+		Image r=new ImageIcon(this.getClass().getResource("/clear-icon.png")).getImage();
+		btnReset.setIcon(new ImageIcon(r));
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { 
 				driverid.setText("");
@@ -165,10 +175,12 @@ public class dlogin extends JFrame {
 		});
 		btnReset.setForeground(Color.BLACK);
 		btnReset.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		btnReset.setBounds(310, 189, 114, 37);
+		btnReset.setBounds(322, 189, 140, 37);
 		panel_1.add(btnReset);
 		
 		JButton btnNewButton_2 = new JButton("Back");
+		Image b=new ImageIcon(this.getClass().getResource("/back-icon.png")).getImage();
+		btnNewButton_2.setIcon(new ImageIcon(b));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {dispose();
 			Home home = new Home();
@@ -176,7 +188,7 @@ public class dlogin extends JFrame {
 			}
 		});
 		btnNewButton_2.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		btnNewButton_2.setBounds(230, 328, 98, 40);
+		btnNewButton_2.setBounds(230, 328, 125, 40);
 		panel_1.add(btnNewButton_2);
 	}
 }

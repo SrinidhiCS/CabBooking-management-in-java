@@ -12,8 +12,11 @@ import javax.swing.JOptionPane;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.border.BevelBorder;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -71,7 +74,7 @@ public class dregister extends JFrame {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(173, 255, 47), new Color(65, 105, 225), null, null));
-		panel_1.setBounds(10, 103, 657, 423);
+		panel_1.setBounds(10, 103, 657, 412);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -106,6 +109,8 @@ public class dregister extends JFrame {
 		daddr.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Reset");
+		Image d=new ImageIcon(this.getClass().getResource("/clear-icon.png")).getImage();
+		btnNewButton.setIcon(new ImageIcon(d));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dname.setText("");
@@ -115,10 +120,12 @@ public class dregister extends JFrame {
 			
 		});
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 22));
-		btnNewButton.setBounds(47, 322, 114, 42);
+		btnNewButton.setBounds(47, 322, 131, 42);
 		panel_1.add(btnNewButton);
 		
 		JButton btnSubmit = new JButton("Submit");
+		Image s=new ImageIcon(this.getClass().getResource("/ok-icon.png")).getImage();
+		btnSubmit.setIcon(new ImageIcon(s));
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dregister frame =new dregister();
@@ -160,10 +167,12 @@ public class dregister extends JFrame {
 			}
 		});
 		btnSubmit.setFont(new Font("Trebuchet MS", Font.BOLD, 22));
-		btnSubmit.setBounds(241, 322, 114, 42);
+		btnSubmit.setBounds(241, 322, 161, 42);
 		panel_1.add(btnSubmit);
 		
 		JButton btnBack = new JButton("Back");
+		Image b=new ImageIcon(this.getClass().getResource("/back-icon.png")).getImage();
+		btnBack.setIcon(new ImageIcon(b));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -172,7 +181,7 @@ public class dregister extends JFrame {
 			}
 		});
 		btnBack.setFont(new Font("Trebuchet MS", Font.BOLD, 22));
-		btnBack.setBounds(458, 322, 114, 42);
+		btnBack.setBounds(457, 322, 131, 42);
 		panel_1.add(btnBack);
 		
 	}
