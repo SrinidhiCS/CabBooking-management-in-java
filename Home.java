@@ -14,6 +14,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class Home extends JFrame {
 
@@ -39,6 +40,7 @@ public class Home extends JFrame {
 	 * Create the frame.
 	 */
 	public Home() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 553);
 		contentPane = new JPanel();
@@ -90,7 +92,7 @@ public class Home extends JFrame {
 			}
 		});
 		btnDriver.setFont(new Font("Trebuchet MS", Font.BOLD, 28));
-		btnDriver.setBounds(143, 149, 142, 45);
+		btnDriver.setBounds(143, 132, 142, 45);
 		panel_1.add(btnDriver);
 		
 		JButton btnOwner = new JButton("OWNER");
@@ -102,7 +104,18 @@ public class Home extends JFrame {
 		});
 		btnOwner.setBackground(new Color(240, 240, 240));
 		btnOwner.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-		btnOwner.setBounds(143, 267, 142, 45);
+		btnOwner.setBounds(143, 215, 142, 45);
 		panel_1.add(btnOwner);
+		
+		JButton btnCloser = new JButton("CLOSE");
+		btnCloser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnCloser.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
+		btnCloser.setBackground(SystemColor.menu);
+		btnCloser.setBounds(289, 293, 103, 45);
+		panel_1.add(btnCloser);
 	}
 }

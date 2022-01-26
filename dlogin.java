@@ -47,6 +47,7 @@ public class dlogin extends JFrame {
 	 * Create the frame.
 	 */
 	public dlogin() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 576, 541);
 		contentPane = new JPanel();
@@ -116,7 +117,8 @@ public class dlogin extends JFrame {
 						 u.setVisible(true);
 					 }
 					 else
-					 { JOptionPane.showConfirmDialog(btnNewButton, "Driver_ID or Contact_No is wrong");
+					 {dlogin frame = new dlogin(); 
+				     JOptionPane.showConfirmDialog(frame, "Driver_ID or Contact_No is wrong");
 					 driverid.setText("");
 					 dcontno.setText("");
 					 }
@@ -145,6 +147,9 @@ public class dlogin extends JFrame {
 		btnNewButton_1.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				dregister dr = new dregister();
+				dr.show();
 			}
 		});
 		btnNewButton_1.setBounds(343, 281, 120, 33);

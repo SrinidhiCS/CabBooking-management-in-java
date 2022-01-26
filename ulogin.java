@@ -45,6 +45,7 @@ public class ulogin extends JFrame {
 	 * Create the frame.
 	 */
 	public ulogin() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 517, 497);
 		contentPane = new JPanel();
@@ -108,7 +109,8 @@ public class ulogin extends JFrame {
 						 u.setVisible(true);
 					 }
 					 else
-					 { JOptionPane.showConfirmDialog(btnNewButton, "User_ID or Contact_No is wrong");
+					 {ulogin frame = new ulogin();
+					 JOptionPane.showConfirmDialog(frame, "User_ID or Contact_No is wrong");
 					 userid.setText("");
 					 ucontno.setText("");
 					 }
@@ -134,6 +136,9 @@ public class ulogin extends JFrame {
 		JButton btnNewButton_1 = new JButton("Register");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				uregister ur = new uregister();
+				ur.setVisible(true);
 			}
 		});
 		btnNewButton_1.setFont(new Font("Trebuchet MS", Font.BOLD, 15));

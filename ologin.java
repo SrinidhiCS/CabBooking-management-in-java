@@ -44,6 +44,7 @@ public class ologin extends JFrame {
 	 * Create the frame.
 	 */
 	public ologin() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 532, 598);
 		contentPane = new JPanel();
@@ -109,9 +110,10 @@ public class ologin extends JFrame {
 						 u.setVisible(true);
 					 }
 					 else
-					 { JOptionPane.showConfirmDialog(btnNewButton, "Owner_ID or Taxi_id is wrong");
-					 ownid.setText("");
-					 taxiid.setText("");
+					 { ologin frame = new ologin();
+				      JOptionPane.showConfirmDialog(frame, "Owner_ID or Taxi_id is wrong");
+					  ownid.setText("");
+					  taxiid.setText("");
 					 }
 					
 					
@@ -135,6 +137,13 @@ public class ologin extends JFrame {
 		panel_1.add(lblNewJgoodiesLabel_3);
 		
 		JButton btnNewButton_1 = new JButton("Register");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				oregister or = new oregister();
+				or.show();
+			}
+		});
 		btnNewButton_1.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
 		btnNewButton_1.setBounds(201, 320, 117, 37);
 		panel_1.add(btnNewButton_1);
