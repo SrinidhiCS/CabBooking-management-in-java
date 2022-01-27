@@ -108,7 +108,7 @@ public class oregister extends JFrame {
 		
 		JComboBox Type = new JComboBox();
 		Type.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
-		Type.setModel(new DefaultComboBoxModel(new String[] {"Micro", "Mini", "Premium", "Sedan"}));
+		Type.setModel(new DefaultComboBoxModel(new String[] {"Micro         Rs.9/Km", "Mini         Rs.11/Km", "Premium   Rs.13/Km", "Sedan         Rs.15/Km"}));
 		Type.setToolTipText("");
 		Type.setBounds(164, 151, 183, 38);
 		panel_1.add(Type);

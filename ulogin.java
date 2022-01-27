@@ -102,6 +102,13 @@ public class ulogin extends JFrame {
 				Connection con; //= DriverManager.getConnection(url,usernameofdatabase,password)
 				
 				try {
+					ulogin frame = new ulogin();
+					if(uid.length()==0)
+					{ JOptionPane.showMessageDialog(frame, "Please Enter Driver_ID");			
+					}
+					if(uno.length()==0)
+					{ JOptionPane.showMessageDialog(frame, "Please Enter Contact number");
+					}
 					Class.forName("com.mysql.jdbc.Driver");
 					con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
 					Statement stm = con.createStatement();
@@ -114,7 +121,7 @@ public class ulogin extends JFrame {
 						 u.setVisible(true);
 					 }
 					 else
-					 {ulogin frame = new ulogin();
+					 {
 					 JOptionPane.showMessageDialog(null, "User_ID or Contact_No is wrong","ERROR",JOptionPane.ERROR_MESSAGE);
 					 userid.setText("");
 					 ucontno.setText("");

@@ -111,6 +111,13 @@ public class dlogin extends JFrame {
 				String dno = dcontno.getText();
 				Connection con; //= DriverManager.getConnection(url,usernameofdatabase,password);
 				try {
+					dlogin frame = new dlogin(); 
+					if(did.length()==0)
+					{ JOptionPane.showMessageDialog(frame, "Please Enter Driver_ID");			
+					}
+					if(dno.length()==0)
+					{ JOptionPane.showMessageDialog(frame, "Please Enter Contact number");
+					}
 					Class.forName("com.mysql.jdbc.Driver");
 					con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
 					Statement stm = con.createStatement();
@@ -123,7 +130,7 @@ public class dlogin extends JFrame {
 						 u.setVisible(true);
 					 }
 					 else
-					 {dlogin frame = new dlogin(); 
+					 {
 				     JOptionPane.showMessageDialog(null, "Driver_ID or Contact_No is wrong","ERROR",JOptionPane.ERROR_MESSAGE);
 					 driverid.setText("");
 					 dcontno.setText("");

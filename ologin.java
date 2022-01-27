@@ -103,6 +103,13 @@ public class ologin extends JFrame {
 				Connection con; //= DriverManager.getConnection(url,usernameofdatabase,password);
 				PreparedStatement insert;
 				try {
+					 ologin frame = new ologin();
+					if(oname.length()==0)
+					{ JOptionPane.showMessageDialog(frame, "Please Enter Owner_Name");			
+					}
+					if(tid.length()==0)
+					{ JOptionPane.showMessageDialog(frame, "Please Enter Taxi_ID");
+					}
 					Class.forName("com.mysql.jdbc.Driver");
 					con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
 					Statement stm = con.createStatement();
@@ -115,7 +122,7 @@ public class ologin extends JFrame {
 						 u.setVisible(true);
 					 }
 					 else
-					 { ologin frame = new ologin();
+					 {
 				      JOptionPane.showMessageDialog(null, "Owner_Name or Taxi_ID is wrong","ERROR", JOptionPane.ERROR_MESSAGE);
 					  ownid.setText("");
 					  taxiid.setText("");
