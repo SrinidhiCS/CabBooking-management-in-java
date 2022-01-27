@@ -30,6 +30,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
+import com.toedter.calendar.JDateChooser;
 
 public class utrip extends JFrame {
 
@@ -94,51 +95,47 @@ public class utrip extends JFrame {
 		
 		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("Enter User_id");
 		lblNewJgoodiesLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
-		lblNewJgoodiesLabel.setBounds(10, 155, 117, 28);
+		lblNewJgoodiesLabel.setBounds(27, 175, 117, 28);
 		panel_1.add(lblNewJgoodiesLabel);
 		
 		userid = new JTextField();
-		userid.setBounds(154, 153, 142, 28);
+		userid.setBounds(159, 177, 142, 28);
 		panel_1.add(userid);
 		userid.setColumns(10);
 		
 		JLabel lblNewJgoodiesLabel_1 = DefaultComponentFactory.getInstance().createLabel("Select Taxi Type");
 		lblNewJgoodiesLabel_1.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
-		lblNewJgoodiesLabel_1.setBounds(510, 155, 142, 28);
+		lblNewJgoodiesLabel_1.setBounds(27, 236, 142, 28);
 		panel_1.add(lblNewJgoodiesLabel_1);
 		
 		JComboBox ttype = new JComboBox();
 		ttype.setModel(new DefaultComboBoxModel(new String[] {"Micro         Rs.9/Km", "Mini         Rs.11/Km", "Premium   Rs.13/Km", "Sedan         Rs.15/Km"}));
-		ttype.setBounds(510, 194, 142, 27);
+		ttype.setBounds(179, 239, 142, 27);
 		panel_1.add(ttype);
 		
 		JLabel lblNewJgoodiesLabel_2 = DefaultComponentFactory.getInstance().createLabel("Choose start Date");
 		lblNewJgoodiesLabel_2.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
-		lblNewJgoodiesLabel_2.setBounds(10, 201, 142, 27);
+		lblNewJgoodiesLabel_2.setBounds(490, 173, 142, 33);
 		panel_1.add(lblNewJgoodiesLabel_2);
 		
-		JCalendar calendar = new JCalendar();
-		calendar.getDayChooser().setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 0), new Color(25, 25, 112), null, null));
-		calendar.setBounds(154, 201, 198, 153);
-		panel_1.add(calendar);
 		
 		JLabel lblNewJgoodiesLabel_3 = DefaultComponentFactory.getInstance().createLabel("Enter Pick-Up Location");
 		lblNewJgoodiesLabel_3.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
-		lblNewJgoodiesLabel_3.setBounds(10, 378, 198, 33);
+		lblNewJgoodiesLabel_3.setBounds(27, 307, 198, 33);
 		panel_1.add(lblNewJgoodiesLabel_3);
 		
 		pickloc = new JTextField();
-		pickloc.setBounds(203, 382, 476, 28);
+		pickloc.setBounds(235, 311, 476, 71);
 		panel_1.add(pickloc);
 		pickloc.setColumns(10);
 		
 		JLabel lblNewJgoodiesLabel_4 = DefaultComponentFactory.getInstance().createLabel("Entr Destination Location");
 		lblNewJgoodiesLabel_4.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
-		lblNewJgoodiesLabel_4.setBounds(10, 439, 215, 33);
+		lblNewJgoodiesLabel_4.setBounds(27, 420, 215, 33);
 		panel_1.add(lblNewJgoodiesLabel_4);
 		
 		droploc = new JTextField();
-		droploc.setBounds(235, 443, 476, 28);
+		droploc.setBounds(252, 405, 482, 66);
 		panel_1.add(droploc);
 		droploc.setColumns(10);
 		
@@ -156,7 +153,9 @@ public class utrip extends JFrame {
 		btnNewButton.setBounds(22, 517, 142, 41);
 		panel_1.add(btnNewButton);
 		
-		
+		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setBounds(490, 205, 133, 28);
+		panel_1.add(dateChooser);
 		
 		JButton btnSubmit = new JButton("Submit");
 		Image img2 = new ImageIcon(this.getClass().getResource("/ok-icon.png")).getImage();
@@ -167,7 +166,8 @@ public class utrip extends JFrame {
 			String uid = userid.getText();
 			String pl = pickloc.getText();
 			String dl = droploc.getText();
-			SimpleDateFormat sd = new SimpleDateFormat();
+			SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy");
+			String sd = date.format(dateChooser.getDate());
 			String type = ttype.getSelectedItem().toString();
 			
 			if(uid.length()==0)
@@ -184,17 +184,17 @@ public class utrip extends JFrame {
 					PreparedStatement pst;
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
-					/*pst=con.prepareStatement("Insert into trip_details(user_id,start_date,taxi_type,startloc,destloc)values(?,?,?,?,?)");
+					pst=con.prepareStatement("Insert into trip_details(user_id,start_date,taxi_type,startloc,destloc)values(?,?,?,?,?)");
 					pst.setString(1, uid);
-					pst.setLong(2, sd);
+					pst.setString(2, sd);
 					pst.setString(3,type);
 					pst.executeUpdate();
 					Statement stm = con.createStatement();
-					String sql= "Select * from driver where Name ='"+name+"' and Contact_no ='"+cont+"'";
+					String sql= "Select * from trip_details where user_id='"+uid+"' and start_date ='"+sd+"'";
 					ResultSet rs = stm.executeQuery(sql);
 					JOptionPane.showMessageDialog(frame,"Trip Successfully registered");
 					rs.next();
-					JOptionPane.showMessageDialog(frame,"Trip_ID is "+rs.getString(1));*/
+					JOptionPane.showMessageDialog(frame,"Trip_ID is "+rs.getString(1));
 					userid.setText("");
 					pickloc.setText("");
 					droploc.setText("");
@@ -226,7 +226,6 @@ public class utrip extends JFrame {
 		btnBack.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
 		btnBack.setBounds(569, 517, 142, 41);
 		panel_1.add(btnBack);
-
 		
 
 	}
