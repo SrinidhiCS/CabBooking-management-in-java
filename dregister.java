@@ -22,7 +22,9 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 public class dregister extends JFrame {
@@ -145,13 +147,19 @@ public class dregister extends JFrame {
 						String addr = daddr.getText();
 						
 						Class.forName("com.mysql.jdbc.Driver");
-						con= DriverManager.getConnection("jdbc:mysql://localhost/cabbooking","root","");
-						pst = con.prepareStatement("Inser into driver (Name,Contact_no,Address)values(?,?,?)");
+						con= DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
+						pst = con.prepareStatement("Insert into driver (Name,Contact_no,Address)values(?,?,?)");
+						
 						pst.setString(1, name);
 						pst.setString(2, cont);
 						pst.setString(3, addr);
 						pst.executeUpdate();
-						JOptionPane.showMessageDialog(frame,"User Created Successfully");
+						Statement stm = con.createStatement();
+						String sql= "Select * from driver where Name ='"+name+"' and Contact_no ='"+cont+"'";
+						ResultSet rs = stm.executeQuery(sql);
+						JOptionPane.showMessageDialog(frame,"Driver Created Successfully");
+						rs.next();
+						JOptionPane.showMessageDialog(frame,"Driver_ID is "+rs.getString(1));
 						dname.setText("");
 						dcontno.setText("");
 						daddr.setText("");
@@ -181,7 +189,7 @@ public class dregister extends JFrame {
 			}
 		});
 		btnBack.setFont(new Font("Trebuchet MS", Font.BOLD, 22));
-		btnBack.setBounds(457, 322, 131, 42);
+		btnBack.setBounds(441, 322, 131, 42);
 		panel_1.add(btnBack);
 		
 	}

@@ -73,23 +73,23 @@ public class ologin extends JFrame {
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel lblNewJgoodiesLabel_1 = DefaultComponentFactory.getInstance().createLabel("Enter Owner_ID");
+		JLabel lblNewJgoodiesLabel_1 = DefaultComponentFactory.getInstance().createLabel("Enter Owner_Name");
 		lblNewJgoodiesLabel_1.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
-		lblNewJgoodiesLabel_1.setBounds(23, 30, 131, 39);
+		lblNewJgoodiesLabel_1.setBounds(23, 30, 179, 39);
 		panel_1.add(lblNewJgoodiesLabel_1);
 		
 		ownid = new JTextField();
-		ownid.setBounds(186, 30, 172, 39);
+		ownid.setBounds(277, 32, 172, 39);
 		panel_1.add(ownid);
 		ownid.setColumns(10);
 		
 		JLabel lblNewJgoodiesLabel_2 = DefaultComponentFactory.getInstance().createLabel("Enter Taxi_ID");
 		lblNewJgoodiesLabel_2.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
-		lblNewJgoodiesLabel_2.setBounds(34, 108, 131, 31);
+		lblNewJgoodiesLabel_2.setBounds(23, 108, 260, 31);
 		panel_1.add(lblNewJgoodiesLabel_2);
 		
 		taxiid = new JTextField();
-		taxiid.setBounds(162, 106, 156, 39);
+		taxiid.setBounds(293, 106, 156, 39);
 		panel_1.add(taxiid);
 		taxiid.setColumns(10);
 		
@@ -98,15 +98,15 @@ public class ologin extends JFrame {
 		btnNewButton.setIcon(new ImageIcon(d));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String oid = ownid.getText();
+				String oname = ownid.getText();
 				String tid = taxiid.getText();
 				Connection con; //= DriverManager.getConnection(url,usernameofdatabase,password);
 				PreparedStatement insert;
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
-					con =  DriverManager.getConnection("jdbc:mysql://localhost/cabbooking","root","");
+					con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
 					Statement stm = con.createStatement();
-					String sql = "select * from owners where ownerID = "+oid+" and taxiid = "+tid;
+					String sql = "select * from taxi where own_name = '"+oname+"' and Taxi_id = '"+tid+"'";
 					ResultSet rs = stm.executeQuery(sql);
 					 if (rs.next())
 					 {
@@ -116,7 +116,7 @@ public class ologin extends JFrame {
 					 }
 					 else
 					 { ologin frame = new ologin();
-				      JOptionPane.showConfirmDialog(frame, "Owner_ID or Taxi_id is wrong");
+				      JOptionPane.showMessageDialog(null, "Owner_Name or Taxi_ID is wrong","ERROR", JOptionPane.ERROR_MESSAGE);
 					  ownid.setText("");
 					  taxiid.setText("");
 					 }

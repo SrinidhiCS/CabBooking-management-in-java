@@ -20,7 +20,9 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.border.BevelBorder;
 
@@ -144,13 +146,18 @@ public class uregister extends JFrame {
 						String addr = uaddr.getText();
 						
 						Class.forName("com.mysql.jdbc.Driver");
-						con= DriverManager.getConnection("jdbc:mysql://localhost/cabbooking","root","");
-						pst = con.prepareStatement("Inser into user (Name,Contact_no,Address)values(?,?,?)");
+						con= DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
+						pst = con.prepareStatement("Insert into user (Name,Contact_no,Address)values(?,?,?)");
 						pst.setString(1, name);
 						pst.setString(2, cont);
 						pst.setString(3, addr);
 						pst.executeUpdate();
+						Statement stm = con.createStatement();
+						String sql= "Select * from user where Name ='"+name+"' and Contact_no ='"+cont+"'";
+						ResultSet rs = stm.executeQuery(sql);
 						JOptionPane.showMessageDialog(frame,"User Created Successfully");
+						rs.next();
+						JOptionPane.showMessageDialog(frame,"User_ID is "+rs.getString(1));
 						uname.setText("");
 						ucontno.setText("");
 						uaddr.setText("");

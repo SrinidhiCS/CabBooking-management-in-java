@@ -103,9 +103,9 @@ public class ulogin extends JFrame {
 				
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
-					con =  DriverManager.getConnection("jdbc:mysql://localhost/cabbooking","root","");
+					con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
 					Statement stm = con.createStatement();
-					String sql= "Select * from user where user_id ='"+uid+"' and contact_no '"+uno+"'";
+					String sql= "SELECT * from user where user_id ='"+uid+"' and Contact_no='"+uno+"'";
 					ResultSet rs = stm.executeQuery(sql);
 					 if (rs.next())
 					 {
@@ -115,7 +115,7 @@ public class ulogin extends JFrame {
 					 }
 					 else
 					 {ulogin frame = new ulogin();
-					 JOptionPane.showConfirmDialog(frame, "User_ID or Contact_No is wrong");
+					 JOptionPane.showMessageDialog(null, "User_ID or Contact_No is wrong","ERROR",JOptionPane.ERROR_MESSAGE);
 					 userid.setText("");
 					 ucontno.setText("");
 					 }

@@ -112,9 +112,9 @@ public class dlogin extends JFrame {
 				Connection con; //= DriverManager.getConnection(url,usernameofdatabase,password);
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
-					con =  DriverManager.getConnection("jdbc:mysql://localhost/cabbooking","root","");
+					con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
 					Statement stm = con.createStatement();
-					String sql= "Select * from driver where driver_id ="+did+" and contact_no "+dno+";";
+					String sql= "Select * from driver where Driver_id ='"+did+"' and Contact_no ='"+dno+"'";
 					ResultSet rs = stm.executeQuery(sql);
 					 if (rs.next())
 					 {
@@ -124,7 +124,7 @@ public class dlogin extends JFrame {
 					 }
 					 else
 					 {dlogin frame = new dlogin(); 
-				     JOptionPane.showConfirmDialog(frame, "Driver_ID or Contact_No is wrong");
+				     JOptionPane.showMessageDialog(null, "Driver_ID or Contact_No is wrong","ERROR",JOptionPane.ERROR_MESSAGE);
 					 driverid.setText("");
 					 dcontno.setText("");
 					 }

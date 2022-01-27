@@ -60,7 +60,7 @@ public class userpage extends JFrame {
 		panel_1.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(177, 11, 105, 33);
+		btnNewButton_1.setBounds(195, 11, 105, 33);
 		panel_1.add(btnNewButton_1);
 	}
 }
