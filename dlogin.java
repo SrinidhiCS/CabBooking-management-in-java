@@ -109,7 +109,7 @@ public class dlogin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String did = driverid.getText();
 				String dno = dcontno.getText();
-				Connection con; //= DriverManager.getConnection(url,usernameofdatabase,password);
+				Connection con=null; //= DriverManager.getConnection(url,usernameofdatabase,password);
 				try {
 					dlogin frame = new dlogin(); 
 					if(did.length()==0)
@@ -118,25 +118,28 @@ public class dlogin extends JFrame {
 					if(dno.length()==0)
 					{ JOptionPane.showMessageDialog(frame, "Please Enter Contact number");
 					}
-					Class.forName("com.mysql.jdbc.Driver");
-					con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
-					Statement stm = con.createStatement();
-					String sql= "Select * from driver where Driver_id ='"+did+"' and Contact_no ='"+dno+"'";
-					ResultSet rs = stm.executeQuery(sql);
-					 if (rs.next())
-					 {
-						 dispose();
-						 userpage u = new userpage();
-						 u.setVisible(true);
-					 }
-					 else
-					 {
-				     JOptionPane.showMessageDialog(null, "Driver_ID or Contact_No is wrong","ERROR",JOptionPane.ERROR_MESSAGE);
-					 driverid.setText("");
-					 dcontno.setText("");
-					 }
+					else{
+						Class.forName("com.mysql.jdbc.Driver");
+						con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
+						Statement stm = con.createStatement();
+						String sql= "Select * from driver where Driver_id ='"+did+"' and Contact_no ='"+dno+"'";
+						ResultSet rs = stm.executeQuery(sql);
+						if (rs.next())
+						{
+							dispose();
+							driverpage u = new driverpage();
+							u.setVisible(true);
+						}
+						else
+						{
+							JOptionPane.showMessageDialog(null, "Driver_ID or Contact_No is wrong","ERROR",JOptionPane.ERROR_MESSAGE);
+							driverid.setText("");
+							dcontno.setText("");
+						}
 					
-				} catch (ClassNotFoundException e1) {
+					}
+					con.close();
+				}catch (ClassNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (SQLException e1) {

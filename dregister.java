@@ -163,6 +163,7 @@ public class dregister extends JFrame {
 						dname.setText("");
 						dcontno.setText("");
 						daddr.setText("");
+						con.close();
 					} catch (ClassNotFoundException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();

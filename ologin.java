@@ -110,24 +110,25 @@ public class ologin extends JFrame {
 					if(tid.length()==0)
 					{ JOptionPane.showMessageDialog(frame, "Please Enter Taxi_ID");
 					}
-					Class.forName("com.mysql.jdbc.Driver");
-					con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
-					Statement stm = con.createStatement();
-					String sql = "select * from taxi where own_name = '"+oname+"' and Taxi_id = '"+tid+"'";
-					ResultSet rs = stm.executeQuery(sql);
-					 if (rs.next())
-					 {
-						 dispose();
-						 userpage u = new userpage();
-						 u.setVisible(true);
-					 }
-					 else
-					 {
-				      JOptionPane.showMessageDialog(null, "Owner_Name or Taxi_ID is wrong","ERROR", JOptionPane.ERROR_MESSAGE);
-					  ownid.setText("");
-					  taxiid.setText("");
-					 }
-					
+					else{
+						Class.forName("com.mysql.jdbc.Driver");
+						con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
+						Statement stm = con.createStatement();
+						String sql = "select * from taxi where own_name = '"+oname+"' and Taxi_id = '"+tid+"'";
+						ResultSet rs = stm.executeQuery(sql);
+						if (rs.next())
+						{
+							dispose();
+							userpage u = new userpage();
+							u.setVisible(true);
+						}
+						else
+						{
+							JOptionPane.showMessageDialog(null, "Owner_Name or Taxi_ID is wrong","ERROR", JOptionPane.ERROR_MESSAGE);
+							ownid.setText("");
+							taxiid.setText("");
+						}
+					}
 					
 				} catch (ClassNotFoundException e1) {
 					// TODO Auto-generated catch block

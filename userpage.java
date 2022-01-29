@@ -116,7 +116,7 @@ public class userpage extends JFrame {
 				}
 		});
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
-		btnNewButton.setBounds(147, 46, 251, 55);
+		btnNewButton.setBounds(147, 11, 251, 55);
 		panel_3.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("View Bill details");
@@ -131,7 +131,7 @@ public class userpage extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
-		btnNewButton_1.setBounds(147, 138, 251, 55);
+		btnNewButton_1.setBounds(147, 90, 251, 55);
 		panel_3.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Give Feedback");
@@ -144,17 +144,35 @@ public class userpage extends JFrame {
 				fb.show();
 			}
 		});
+		
 		btnNewButton_2.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
 		btnNewButton_2.setBounds(147, 242, 251, 55);
 		panel_3.add(btnNewButton_2);
 		
+		JButton btnNewButton_2_1 = new JButton("Cancel A Trip");
+		Image img5 = new ImageIcon(this.getClass().getResource("/close-icon.png")).getImage();
+		btnNewButton_2_1.setIcon(new ImageIcon(img5));
+		btnNewButton_2_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) { 
+				dispose();
+				tcancel tc = new tcancel();
+				tc.show();
+			}
+		});
+		btnNewButton_2_1.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
+		btnNewButton_2_1.setBounds(147, 167, 251, 55);
+		panel_3.add(btnNewButton_2_1);
+		
+	
+		
+		
 		JLabel bg = DefaultComponentFactory.getInstance().createLabel("");
-		bg.setBounds(-85, 0, 663, 383);
+		bg.setBounds(-82, 0, 663, 383);
 		panel_3.add(bg);
 		Image img2 = new ImageIcon(this.getClass().getResource("/customer-icon.png")).getImage();
 		bg.setIcon(new ImageIcon(img2));
 		
-	
+		
 		
 
 

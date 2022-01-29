@@ -104,30 +104,32 @@ public class ulogin extends JFrame {
 				try {
 					ulogin frame = new ulogin();
 					if(uid.length()==0)
-					{ JOptionPane.showMessageDialog(frame, "Please Enter Driver_ID");			
+					{ JOptionPane.showMessageDialog(frame, "Please Enter User_ID");			
 					}
 					if(uno.length()==0)
 					{ JOptionPane.showMessageDialog(frame, "Please Enter Contact number");
 					}
-					Class.forName("com.mysql.jdbc.Driver");
-					con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
-					Statement stm = con.createStatement();
-					String sql= "SELECT * from user where user_id ='"+uid+"' and Contact_no='"+uno+"'";
-					ResultSet rs = stm.executeQuery(sql);
-					 if (rs.next())
-					 {
+					else{
+						Class.forName("com.mysql.jdbc.Driver");
+						con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
+						Statement stm = con.createStatement();
+						String sql= "SELECT * from user where user_id ='"+uid+"' and Contact_no='"+uno+"'";
+						ResultSet rs = stm.executeQuery(sql);
+						if (rs.next())
+						{
 						 dispose();
 						 userpage u = new userpage();
 						 u.setVisible(true);
-					 }
-					 else
-					 {
-					 JOptionPane.showMessageDialog(null, "User_ID or Contact_No is wrong","ERROR",JOptionPane.ERROR_MESSAGE);
-					 userid.setText("");
-					 ucontno.setText("");
-					 }
-				con.close();
-				} catch (ClassNotFoundException e1) {
+						}
+						else
+						{
+							JOptionPane.showMessageDialog(null, "User_ID or Contact_No is wrong","ERROR",JOptionPane.ERROR_MESSAGE);
+							userid.setText("");
+							ucontno.setText("");
+						}
+						con.close();
+					} 
+				}catch (ClassNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (SQLException e1) {
