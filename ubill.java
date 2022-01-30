@@ -89,7 +89,7 @@ public class ubill extends JFrame {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.GRAY);
 		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(165, 42, 42), new Color(255, 69, 0), null, null));
-		panel_1.setBounds(10, 92, 624, 501);
+		panel_1.setBounds(10, 97, 624, 493);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		Image img = new ImageIcon(this.getClass().getResource("/bill-icon.jpg")).getImage();
@@ -116,7 +116,7 @@ public class ubill extends JFrame {
 		usid.setColumns(10);
 		
 		trid = new JTextField();
-		trid.setBounds(150, 78, 162, 38);
+		trid.setBounds(163, 78, 162, 38);
 		panel_1.add(trid);
 		trid.setColumns(10);
 		
@@ -230,7 +230,7 @@ public class ubill extends JFrame {
 		price = new JTextField();
 		price.setEditable(false);
 		price.setColumns(10);
-		price.setBounds(150, 345, 162, 38);
+		price.setBounds(188, 345, 186, 38);
 		panel_1.add(price);
 		
 		disttra = new JTextField();
@@ -242,13 +242,13 @@ public class ubill extends JFrame {
 		billno = new JTextField();
 		billno.setEditable(false);
 		billno.setColumns(10);
-		billno.setBounds(138, 223, 137, 38);
+		billno.setBounds(188, 225, 137, 38);
 		panel_1.add(billno);
 		
 		JLabel bg = DefaultComponentFactory.getInstance().createLabel("");
-		bg.setBounds(21, 0, 571, 501);
+		bg.setBounds(452, 223, 162, 249);
 		panel_1.add(bg);
-		Image img5 = new ImageIcon(this.getClass().getResource("/bill-icon.jpg")).getImage();
+		Image img5 = new ImageIcon(this.getClass().getResource("/invoice-icon.png")).getImage();
 		bg.setIcon(new ImageIcon(img5));
 	}
 }

@@ -148,11 +148,13 @@ public class dregister extends JFrame {
 						
 						Class.forName("com.mysql.jdbc.Driver");
 						con= DriverManager.getConnection("jdbc:mysql://localhost:3306/cabbooking","root","");
-						pst = con.prepareStatement("Insert into driver (Name,Contact_no,Address)values(?,?,?)");
+						pst = con.prepareStatement("Insert into driver (Name,Contact_no,Address,rating)values(?,?,?,?)");
 						
 						pst.setString(1, name);
 						pst.setString(2, cont);
 						pst.setString(3, addr);
+						pst.setInt(4, 5);
+						
 						pst.executeUpdate();
 						Statement stm = con.createStatement();
 						String sql= "Select * from driver where Name ='"+name+"' and Contact_no ='"+cont+"'";

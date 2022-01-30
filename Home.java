@@ -97,7 +97,8 @@ public class Home extends JFrame {
 		Image d=new ImageIcon(this.getClass().getResource("/Transport-Driver-icon.png")).getImage();
 		btnDriver.setIcon(new ImageIcon(d));
 		btnDriver.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {dispose();
+			public void actionPerformed(ActionEvent e) {
+			dispose();
 			dlogin d = new dlogin();
 			d.setVisible(true);
 			}

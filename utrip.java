@@ -201,9 +201,10 @@ public class utrip extends JFrame {
 					if (r1==false)
 					{ JOptionPane.showMessageDialog(null, "Taxi Type not available","ERROR",JOptionPane.ERROR_MESSAGE);
 					}
+					else {
 					tid=rs1.getString(1);
 					pst.setString(6, rs1.getString(1));
-					String sql2= "Select * from driver where driver_id not in (Select driver_id from trip_details where start_date between'"+sd+"'and DATE_ADD("+sd+",INTERVAL 2 DAY))"; 
+					String sql2= "Select * from driver where driver_id not in (Select driver_id from trip_details where start_date ='"+sd+"')"; 
 					ResultSet rs2 = stm1.executeQuery(sql2);
 					rs2.next();
 					pst.setString(7, rs2.getString(1));
@@ -243,7 +244,7 @@ public class utrip extends JFrame {
 					ttype.setSelectedItem("");
 					pickloc.setSelectedItem("");
 					droploc.setSelectedItem("");
-					
+					}
 				} catch (ClassNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

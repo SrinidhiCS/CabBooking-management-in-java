@@ -38,6 +38,7 @@ public class vfback extends JFrame {
 	private JTextField drid;
 	private JTextField dcontno;
 	private JTable table;
+	private JTextField rat;
 
 	/**
 	 * Launch the application.
@@ -67,6 +68,7 @@ public class vfback extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBorder(new BevelBorder(BevelBorder.RAISED, Color.RED, Color.BLACK, null, null));
 		panel.setBackground(new Color(123, 104, 238));
 		panel.setBounds(10, 11, 599, 76);
 		contentPane.add(panel);
@@ -103,6 +105,19 @@ public class vfback extends JFrame {
 		panel_1.add(dcontno);
 		dcontno.setColumns(10);
 		
+		
+		JLabel rating = DefaultComponentFactory.getInstance().createLabel("Overall Rating");
+		rating.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
+		rating.setBounds(45, 186, 126, 32);
+		panel_1.add(rating);
+		
+		
+		rat = new JTextField();
+		rat.setBounds(181, 187, 93, 31);
+		panel_1.add(rat);
+		rat.setColumns(10);
+		
+		
 		JButton btnNewButton = new JButton("Submit");
 		Image img1 = new ImageIcon(this.getClass().getResource("/ok-icon.png")).getImage();
 		btnNewButton.setIcon(new ImageIcon(img1));
@@ -131,6 +146,11 @@ public class vfback extends JFrame {
 					    	PreparedStatement pst = con.prepareStatement(sql1);
 					    	ResultSet rs1 = pst.executeQuery();
 					    	table.setModel(DbUtils.resultSetToTableModel(rs1)); 
+					    	String sql2 = "Select rating from driver where driver_id = '"+did+"'";
+					    	PreparedStatement pst2 = con.prepareStatement(sql2);
+					    	ResultSet rs2 = pst2.executeQuery();
+					    	rs2.next();
+					    	rat.setText(rs2.getString(1));
 					    }
 					    else
 					    {
@@ -158,7 +178,7 @@ public class vfback extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setViewportBorder(new BevelBorder(BevelBorder.LOWERED, Color.BLACK, Color.DARK_GRAY, null, null));
-		scrollPane.setBounds(10, 205, 579, 222);
+		scrollPane.setBounds(10, 241, 579, 186);
 		panel_1.add(scrollPane);
 		
 		table = new JTable();
@@ -178,7 +198,7 @@ public class vfback extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				drid.setText("");
 				dcontno.setText("");
-				
+				rat.setText("");
 			}
 		});
 		btnReset.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
@@ -199,9 +219,12 @@ public class vfback extends JFrame {
 		btnBack.setBounds(433, 129, 156, 47);
 		panel_1.add(btnBack);
 		
+		
 		JLabel bg = DefaultComponentFactory.getInstance().createLabel("");
 		bg.setBounds(-77, -32, 676, 438);
 		panel_1.add(bg);
 		bg.setIcon(new ImageIcon(img));
+	
+		
 	}
 }
