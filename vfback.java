@@ -142,7 +142,7 @@ public class vfback extends JFrame {
 					    String sql= "SELECT * from driver where Driver_id ='"+did+"' and Contact_no='"+dcno+"'";
 					    ResultSet rs = stm.executeQuery(sql);
 					    if(rs.next())
-					    { 	String sql1 = "Select * from feedback where trip_id in ( Select trip_id from trip_details where driver_id = '"+did+"')";
+					    { 	String sql1 = "Select f.feedback_id, t.driver_id,f.trip_id,f.rating,f.message from feedback f inner join trip_details t on f.trip_id = t.trip_id and f.trip_id in ( Select trip_id from trip_details where driver_id = '"+did+"')";
 					    	PreparedStatement pst = con.prepareStatement(sql1);
 					    	ResultSet rs1 = pst.executeQuery();
 					    	table.setModel(DbUtils.resultSetToTableModel(rs1)); 
