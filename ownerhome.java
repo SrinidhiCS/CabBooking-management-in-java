@@ -71,6 +71,13 @@ public class ownerhome extends JFrame {
 		panel_1.setLayout(null);
 		
 		JButton btnUnregisterAnExisting = new JButton("Unregister An Existing Taxi");
+		btnUnregisterAnExisting.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				unreg ur = new unreg();
+				ur.show();
+			}
+		});
 		Image img1 = new ImageIcon(this.getClass().getResource("/close-icon.png")).getImage();
 		 btnUnregisterAnExisting.setIcon(new ImageIcon(img1));
 		btnUnregisterAnExisting.setFont(new Font("Trebuchet MS", Font.BOLD, 18));

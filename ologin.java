@@ -119,7 +119,7 @@ public class ologin extends JFrame {
 						if (rs.next())
 						{
 							dispose();
-							userpage u = new userpage();
+							ownerhome u = new ownerhome();
 							u.setVisible(true);
 						}
 						else
