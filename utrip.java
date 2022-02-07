@@ -1,6 +1,7 @@
 package swing;
 
 import java.sql.*;
+import java.util.Date;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -37,9 +38,6 @@ public class utrip extends JFrame {
 	private JPanel contentPane;
 	private JTextField userid;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -52,10 +50,6 @@ public class utrip extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
 
 	public utrip() {
 		setResizable(false);
@@ -121,14 +115,11 @@ public class utrip extends JFrame {
 		droploc.setModel(new DefaultComboBoxModel(new String[] {"Bangalore", "Mysore", "Tumkur"}));
 		droploc.setBounds(253, 409, 122, 33);
 		panel_1.add(droploc);
-		
 
-		
 		JLabel lblNewJgoodiesLabel_2 = DefaultComponentFactory.getInstance().createLabel("Choose start Date");
 		lblNewJgoodiesLabel_2.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
 		lblNewJgoodiesLabel_2.setBounds(490, 173, 142, 33);
 		panel_1.add(lblNewJgoodiesLabel_2);
-		
 		
 		JLabel lblNewJgoodiesLabel_3 = DefaultComponentFactory.getInstance().createLabel("Enter Pick-Up Location");
 		lblNewJgoodiesLabel_3.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
@@ -155,6 +146,8 @@ public class utrip extends JFrame {
 		JDateChooser dateChooser = new JDateChooser();
 		dateChooser.setBounds(490, 205, 133, 28);
 		panel_1.add(dateChooser);
+		Date dat = new Date();
+		dateChooser.setMinSelectableDate(dat);
 		
 		JButton btnSubmit = new JButton("Submit");
 		Image img2 = new ImageIcon(this.getClass().getResource("/ok-icon.png")).getImage();
@@ -273,7 +266,6 @@ public class utrip extends JFrame {
 		btnBack.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
 		btnBack.setBounds(548, 489, 142, 41);
 		panel_1.add(btnBack);
-		
-		
+			
 	}
 }

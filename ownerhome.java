@@ -22,10 +22,6 @@ import java.awt.event.ActionEvent;
 public class ownerhome extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -39,9 +35,6 @@ public class ownerhome extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public ownerhome() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

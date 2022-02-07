@@ -34,9 +34,6 @@ public class ubill extends JFrame {
 	private JTextField trid;
 	private JTextField amt;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -50,9 +47,6 @@ public class ubill extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	PreparedStatement pst;
 	Connection con;
 	private JTextField price;

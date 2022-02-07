@@ -22,9 +22,6 @@ public class userpage extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -38,9 +35,6 @@ public class userpage extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public userpage() {
 		setResizable(false);
 		getContentPane().setLayout(null);
@@ -163,18 +157,12 @@ public class userpage extends JFrame {
 		btnNewButton_2_1.setBounds(147, 167, 251, 55);
 		panel_3.add(btnNewButton_2_1);
 		
-	
-		
 		
 		JLabel bg = DefaultComponentFactory.getInstance().createLabel("");
 		bg.setBounds(-82, 0, 663, 383);
 		panel_3.add(bg);
 		Image img2 = new ImageIcon(this.getClass().getResource("/customer-icon.png")).getImage();
 		bg.setIcon(new ImageIcon(img2));
-		
-		
-		
-
 
 	}
 }
